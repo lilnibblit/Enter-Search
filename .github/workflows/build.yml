@@ -14,7 +14,6 @@ jobs:
         config:
         - name: Windows
           os: windows-latest
-          target: Win32
         #- name: Android32
         #  os: ubuntu-latest
         #  target: Android32
@@ -39,16 +38,16 @@ jobs:
           bindings-ref: main
           target: ${{ matrix.config.target }}
       
-  package:
-    name: Package builds
-    runs-on: ubuntu-latest
-    needs: ['build']
+  # package:
+  #   name: Package builds
+  #   runs-on: ubuntu-latest
+  #   needs: ['build']
 
-    steps:
-      - uses: geode-sdk/build-geode-mod/combine@main
-        id: build
+  #   steps:
+  #     - uses: geode-sdk/build-geode-mod/combine@main
+  #       id: build
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Build Output
-          path: ${{ steps.build.outputs.build-output }}
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: Build Output
+  #         path: ${{ steps.build.outputs.build-output }}
